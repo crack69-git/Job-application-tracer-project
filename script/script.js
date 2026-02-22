@@ -1,25 +1,39 @@
 let interviewList = [];
 let rejectedList = [];
 let currentList = [];
+let currentStatus = 'all-btn';
 
 
 let total = document.getElementById("total");
 let interview = document.getElementById("interview");
 let rejected = document.getElementById("rejected");
 const allcards = document.getElementById("all-card");
+let jobcount = document.getElementById("job-count");
+
 
 const maincontainer = document.querySelector('main');
+function updateJobCount() {
+    if (currentStatus === 'all-btn') {
+        jobcount.innerHTML = `<p><span>${allcards.children.length}</span> Jobs</p>`;
+    } else if (currentStatus === 'interview-btn') {
+        jobcount.innerHTML = `<p><span>${interviewList.length}</span> of ${allcards.children.length} Jobs</p>`;
+    } else if (currentStatus === 'rejected-btn') {
+        jobcount.innerHTML = `<p><span>${rejectedList.length}</span> of ${allcards.children.length} Jobs</p>`;
+    }
+}
 
 function updatecounts() {
     total.innerText = allcards.children.length;
     interview.innerText = interviewList.length;
     rejected.innerText = rejectedList.length;
+    updateJobCount();
 }
 updatecounts();
 
 function toggleStyle(id) {
     selected = document.getElementById(id);
     currentStatus = id;
+    updateJobCount();
     if (id == 'interview-btn') {
         allcards.classList.add('hidden');
         filterSection.classList.remove('hidden');
@@ -37,12 +51,10 @@ function toggleStyle(id) {
             </div>
             `;
         }
-
     }
     else if (id == 'all-btn') {
         allcards.classList.remove('hidden');
         filterSection.classList.add('hidden');
-
     }
     else if (id == 'rejected-btn') {
         allcards.classList.add('hidden');
@@ -106,7 +118,9 @@ maincontainer.addEventListener('click', function (event) {
                 </div>
                 `;
             }
+
         }
+
     }
     else if (event.target.classList.contains('reject-btn')) {
         const parentNode = event.target.parentNode.parentNode;
