@@ -93,6 +93,19 @@ maincontainer.addEventListener('click', function (event) {
         updatecounts();
         if (currentStatus == 'rejected-btn') {
             renderRejectedList();
+            if (rejectedList.length == 0) {
+                filterSection.innerHTML = `
+                    <div class="card bg-base-100 w-full shadow-sm">
+                    <figure class="px-10 pt-10">
+                        <img src="jobs.png" alt="Shoes" class="rounded-xl" />
+                    </figure>
+                    <div class="card-body items-center text-center">
+                        <h2 class="card-title font-bold">No jobs available</h2>
+                        <p>Check back soon for new job opportunities</p>
+                    </div>
+                </div>
+                `;
+            }
         }
     }
     else if (event.target.classList.contains('reject-btn')) {
@@ -124,6 +137,19 @@ maincontainer.addEventListener('click', function (event) {
         updatecounts();
         if (currentStatus == 'interview-btn') {
             renderInterviewList();
+            if (interviewList.length == 0) {
+                filterSection.innerHTML = `
+                    <div class="card bg-base-100 w-full shadow-sm">
+                    <figure class="px-10 pt-10">
+                        <img src="jobs.png" alt="Shoes" class="rounded-xl" />
+                    </figure>
+                    <div class="card-body items-center text-center">
+                        <h2 class="card-title font-bold">No jobs available</h2>
+                        <p>Check back soon for new job opportunities</p>
+                    </div>
+                </div>
+                `;
+            }
         }
     }
 
