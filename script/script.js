@@ -221,7 +221,7 @@ function renderInterviewList() {
     filterSection.innerHTML = '';
     for (let inter of interviewList) {
         let div = document.createElement("div");
-        div.className = "card bg-base-100 card-md shadow-sm w-full";
+        div.className = "card bg-base-100 card-md shadow-sm w-full mb-5";
         div.innerHTML = `
             <div class="card-body">
                 <div class="flex justify-between items-center">
