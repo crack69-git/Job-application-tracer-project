@@ -1,6 +1,6 @@
 ## Answers to Questions
 ### 1. What is the difference between getElementById, getElementsByClassName, and querySelector / querySelectorAll?
--The main difference between them is getElementById selects one element by its id, getElementsbyClassName gives us the HTML collection of that perticular class, querySelector gives us the element macthing any valid css selector and finally querySelectorAll returns all elements matching the CSS selector.
+-The main difference between them is getElementById selects one element by its id, getElementsByClassName gives us the HTML collection of that perticular class, querySelector gives us the element matching any valid css selector and finally querySelectorAll returns all elements matching the CSS selector.
 
 ### 2. How do you create and insert a new element into the DOM?
 step 1- create a new div element.
@@ -19,11 +19,11 @@ document.body.appendChild(createDiv);
 ### 4. What is Event Delegation in JavaScript? Why is it useful?
 Event Delegation is a pattern used to handle events efficiently by attaching a single event listener to a parent element instead of adding listeners to multiple similar child elements, and then identifying the actual source of the event using the event.target property.
 
-It is usefull to-
+It is useful to-
 1.Reduces the number of event listeners.
 2.Improves performance and memory usage.
 4.Ideal for dynamically added elements.
 
 ### 5. What is the difference between preventDefault() and stopPropagation() methods?
--preventDefault: Stops the browser's default action.
--stopPropagation(): Stops the event from bubbling up to parent elements.
+-preventDefault(): Stops browser's default action (stops a form from submitting, stops a link from navigating)
+-stopPropagation(): Stops the event from bubbling up to parent elements, but the default action still occurs
